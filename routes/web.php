@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', 'homeController@index');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('article.index');
