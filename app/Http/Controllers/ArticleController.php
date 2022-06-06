@@ -10,4 +10,14 @@ class ArticleController extends Controller
     {
         return view('article.index');
     }
+
+    public function create()
+    {
+        return view('article.create');
+    }
+
+    public function storeCreate(Request $request)
+    {
+        return view('article.create');
+    }
 }

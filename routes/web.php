@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('article.index');
+Route::get('/article/create', 'App\Http\Controllers\ArticleController@create')->name('article.create');
+Route::post('/article/create', 'App\Http\Controllers\ArticleController@storeCreate')->name('article.storeCreate');
