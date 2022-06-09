@@ -1,11 +1,11 @@
-@extends ('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
 <div class="text-center row justify-content-center py-3 mx-auto w-100">
   <div class="col-12 px-2 py-3">
     <div class="pb-5">
-      <button type=“button” class="btn btn-primary btn-lg" onclick="location.href='{{ route('article.create') }}'">新規作成</button>
+      <button type=“button” class="btn btn-success" onclick="location.href='{{ route('article.create') }}'">新規作成</button>
     </div>
     <div class="card mx-auto" style="width: 30rem;">
       <div class="card-body">

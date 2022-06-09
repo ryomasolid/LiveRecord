@@ -12,18 +12,28 @@
 </head>
 <body>
 
-  <div class="container text-primary">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+  <div class="container">
+    <header class="d-flex justify-content-between flex-wrap py-3 mb-4 border-bottom">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="{{ route('home') }}" class="nav-link active">ホーム</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">プロフィール</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">お気に入り</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">設定</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">ログアウト</a></li>
+        <li class="nav-item"><a href="{{ route('article.index') }}" class="nav-link">LiveRecord</a></li>
       </ul>
+      <div class="btn-group float-right">
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ Auth::user()->name }}
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">プロフィール</a>
+          <a class="dropdown-item" href="#">お気に入り</a>
+          <a class="dropdown-item" href="#">設定</a>
+          <div class="dropdown-divider"></div>
+          <form action="{{ route('logout') }}" method="post" class="dropdown-item">
+            @csrf
+            <input type="submit" value="ログアウト" class="btn btn-link">
+          </form>
+        </div>
+      </div>
     </header>
   </div>
-
   @yield('content')
 </body>
 </html>
