@@ -7,15 +7,21 @@
     <div class="pb-5">
       <button type=“button” class="btn btn-success" onclick="location.href='{{ route('article.create') }}'">新規作成</button>
     </div>
-    <div class="card mx-auto" style="width: 30rem;">
-      <div class="card-body">
-        <h5 class="card-title">ライブタイトル（アーティスト名）</h5>
-        <h6 class="card-subtitle mb-2 text-muted">ライブ日程</h6>
-        <p class="card-text">ライブのセットリストや感想を記載してください。</p>
-        <a href="#" class="card-link">編集</a>
-        <a href="#" class="card-link">削除</a>
+    @foreach($articles as $article)
+      <div class="card mx-auto mb-3" style="width: 30rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ $article->artistLiveName }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ $article->liveSchedule }}</h6>
+          <p class="card-text">{!! nl2br(htmlspecialchars($article->setlist)) !!}</p>
+          <div class="mx-auto d-flex justify-content-between" style="width: 100px;">
+            <a href="{{ route('article.create') }}" class="d-flex align-items-center mx-auto w-50">編集</a>
+            {!! Form::open(['route' => ['article.destroy', $article->id], 'method' => 'delete', 'class' => 'w-50']) !!}
+              <input type="submit" value="削除" class="btn btn-link">
+            {!! Form::close() !!}
+          </div>
+        </div>
       </div>
-    </div>
+    @endforeach
   </div>
 </div>
 

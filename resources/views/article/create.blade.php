@@ -5,7 +5,7 @@
 <div class="row justify-content-center py-3 mx-auto w-100">
   <div class="col-12 px-2 py-3">
     {!! Form::open(['route' => 'article.storeCreate', 'method' => 'post']) !!}
-      <div class="card mx-auto" style="width: 30rem;">
+      <div class="card mx-auto mb-3" style="width: 30rem;">
         <div class="card-body">
           <div class="form-group">
             <label for="formGroupExampleInput">アーティスト名 / ライブ名</label>
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="row mx-auto pb-3 justify-content-center">
+      <div class="row mx-auto justify-content-center">
         {!! Form::submit('投稿', ['class' => 'btn btn-danger btn-lg']) !!}
       </div>
     {!! Form::close() !!}
