@@ -30,18 +30,31 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
+    public function edit(Request $request, $id)
+    {
+        $user = Auth::user();
+        $article = $user->article->find($id);
+        return view('article.edit', compact('article'));
+    }
+
+    public function updata(Request $request, $id)
+    {
+        $input = $request->all();
+        $this->article->find($id)->fill($input)->save();
+        return redirect()->route('article.index');
+    }
+
     public function destroy($id)
     {
         $this->article->find($id)->delete();
         return redirect()->route('article.index');
     }
 
-    public function storeCreate(Request $request, Article $article)
+    public function storeCreate(Request $request)
     {
-        $input['artistLiveName'] = $request->input('artistLiveName');
-        $input['liveSchedule'] = $request->input('liveSchedule');
-        $input['setlist'] = $request->input('setlist');
-        $article->fill($input)->save();
+        $input = $request->all();
+        $input['user_id'] = Auth::id();
+        $this->article->fill($input)->save();
         return redirect()->route('article.index');
     }
 }

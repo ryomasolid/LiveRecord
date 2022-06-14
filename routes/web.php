@@ -24,6 +24,9 @@ Route::get('/article', 'App\Http\Controllers\ArticleController@index')->name('ar
 Route::delete('/article/{id}', 'App\Http\Controllers\ArticleController@destroy')->name('article.destroy');
 Route::get('/article/create', 'App\Http\Controllers\ArticleController@create')->name('article.create');
 Route::post('/article/create', 'App\Http\Controllers\ArticleController@storeCreate')->name('article.storeCreate');
+// Route::get('/article/edit', 'App\Http\Controllers\ArticleController@edit')->name('article.edit');
+Route::post('/article/{id}', 'App\Http\Controllers\ArticleController@edit')->name('article.edit');
+Route::put('/article/{id}', 'App\Http\Controllers\ArticleController@updata')->name('article.updata');
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
