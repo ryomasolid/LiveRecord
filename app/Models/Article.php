@@ -13,5 +13,11 @@ class Article extends Model
         'artistLiveName',
         'liveSchedule',
         'setlist',
+        'user_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

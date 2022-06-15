@@ -14,10 +14,14 @@
           <h6 class="card-subtitle mb-2 text-muted">{{ $article->liveSchedule }}</h6>
           <p class="card-text">{!! nl2br(htmlspecialchars($article->setlist)) !!}</p>
           <div class="mx-auto d-flex justify-content-between" style="width: 100px;">
-            <a href="{{ route('article.create') }}" class="d-flex align-items-center mx-auto w-50">編集</a>
+            @if(Auth::id() == $article->user_id)
+            {!! Form::open(['route' => ['article.edit', $article->id], 'class' => 'w-50']) !!}
+              <input type="submit" value="編集" class="btn btn-link">
+            {!! Form::close() !!}
             {!! Form::open(['route' => ['article.destroy', $article->id], 'method' => 'delete', 'class' => 'w-50']) !!}
               <input type="submit" value="削除" class="btn btn-link">
             {!! Form::close() !!}
+            @endif
           </div>
         </div>
       </div>
