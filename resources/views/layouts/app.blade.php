@@ -22,7 +22,7 @@
           {{ Auth::user()->name }}
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">プロフィール</a>
+          <a class="dropdown-item" href="{{ route('article.profile') }}">プロフィール</a>
           <a class="dropdown-item" href="#">お気に入り</a>
           <a class="dropdown-item" href="#">設定</a>
           <div class="dropdown-divider"></div>

@@ -57,4 +57,9 @@ class ArticleController extends Controller
         $this->article->fill($input)->save();
         return redirect()->route('article.index');
     }
+
+    public function profile()
+    {
+        return view('article.profile');
+    }
 }
