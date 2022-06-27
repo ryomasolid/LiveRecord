@@ -54,9 +54,7 @@ class ArticleController extends Controller
     {
         $input = $request->all();
         $input['user_id'] = Auth::id();
-        $a = $this->article;
-        // ->fill($input)->save();
-        dd($a);
+        $this->article->fill($input)->save();
         return redirect()->route('article.index');
     }
 
