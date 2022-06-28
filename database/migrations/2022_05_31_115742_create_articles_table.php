@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('article');
+            $table->text('artistLiveName');
+            $table->date('liveSchedule');
+            $table->mediumText('setlist');
+            $table->integer('user_id');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +31,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropIfExists(['artistLiveName', 'liveSchedule', 'setlist']);
+        });
     }
 };
